@@ -45,4 +45,23 @@ document.addEventListener('DOMContentLoaded', function() {
 
     loadTasks();    
 
+    async function fetchInitialTasks() {
+        try {
+            const response = await fetch('https://jsonplaceholder.typicode.com/todos?_limit=5');
+            const data = await response.json();
+            data.forEach(item => {
+                addTaskToDOM(item.title);
+            });
+            saveTasks();
+        } catch (error) {
+            console.error('Erreur lors de la récupération des tâches initiales:', error);
+            errormsg = document.createElement('p');
+            errormsg.textContent = "Impossible de charger les tâches initiales.";
+            document.querySelector('.container').appendChild(errormsg);
+            
+        }
+    }
+
+    fetchInitialTasks();
+
 });
