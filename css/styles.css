@@ -1,0 +1,24 @@
+/* Container centré */
+.container {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Formulaire avec espacement entre les éléments */
+#taskForm {
+    display: flex;
+    gap: 10px;
+}
+
+/* Input qui prend tout l'espace disponible */
+#taskInput {
+    flex: 1;
+    padding: 10px;
+}
+/* Liste des tâches avec espacement */
+#taskList li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
